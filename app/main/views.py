@@ -38,6 +38,15 @@ def update_profile(uname):
         db.session.add(user)
         db.session.commit()
 
-        return redirect(url_for('.profile',uname=user.username))
+        return redirect(url_for('main.update_profile',uname=user.username))
 
     return render_template('profile/update.html',form =form)  
+@main.route('/blog',methods = ["GET","POST"])
+def  blog():
+  '''
+  Function that returns the blog page
+  '''
+#   blogs_found = Blogs.query.order_by(Blogs.submitted.desc()).all()
+  
+  title = "kim blog"
+  return render_template('blog.html',title = title)

@@ -10,9 +10,10 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/">Home</a>
             {% if current_user.is_authenticated %}
-            <li class="nav-item nav-link active" aria-current="page" style="color:white;padding:15px;">{{current_user.username}}</li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
+            <li class="nav-item nav-link active"  style="color:white;">{{current_user.username}}</li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{url_for('main.update_profile',uname=current_user.username)}}">Profile</a></li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{url_for('auth.logout')}}">Sign out</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="/blog">Add Blog</a></li>
             {% else %}
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{url_for('auth.login')}}">Sign in</a></li>
             {%endif%}
